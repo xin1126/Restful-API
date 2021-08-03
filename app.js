@@ -13,6 +13,9 @@ admin.initializeApp({
 
 const fireData = admin.database();
 
+app.set('views','./views');
+app.set('view engine','ejs');
+app.use(express.static('public'))
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }))
 
@@ -24,7 +27,7 @@ app.all('*', (req, res, next) => {
 });
 
 app.get('/crud-api', (req, res) => {
-   fireData.ref().on('value', (snapshot) => {
+   fireData.ref().once('value', (snapshot) => {
       res.send({
          'success': true,
          'result': snapshot.val(),
@@ -34,9 +37,9 @@ app.get('/crud-api', (req, res) => {
    });
 })
 
+
 app.post('/crud-api', (req, res) => {
    const content = req.body;
-   console.log(content);
    const contentRef = fireData.ref().push();
    contentRef.set({ ...content })
    .then(() => {
