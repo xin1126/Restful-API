@@ -19,23 +19,23 @@ const fireData = admin.database();
 // app.use(bodyParser.json());
 // app.use(bodyParser.urlencoded({ extended: false }))
 
-app.all('*', (req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT,DELETE");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
-    next();
-});
+// app.all('*', (req, res, next) => {
+//     res.header("Access-Control-Allow-Origin", "*");
+//     res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT,DELETE");
+//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+//     next();
+// });
 
-app.get('/crud-api', (req, res) => {
-   fireData.ref().on('value', (snapshot) => {
-      res.send({
-         'success': true,
-         'result': snapshot.val(),
-         'message': '資料讀取成功',
-      });
-      res.end();
-   });
-})
+// app.get('/crud-api', (req, res) => {
+//    fireData.ref().on('value', (snapshot) => {
+//       res.send({
+//          'success': true,
+//          'result': snapshot.val(),
+//          'message': '資料讀取成功',
+//       });
+//       res.end();
+//    });
+// })
 
 app.get('/', (req, res) => {
    res.send('123')
