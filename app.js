@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 
 const admin = require("firebase-admin");
 
-const serviceAccount = require("./crud-89cd3-firebase-adminsdk-j7o5m-14119e3036.json");
+const serviceAccount = require("./crud.json");
 
 admin.initializeApp({
    credential: admin.credential.cert(serviceAccount),
