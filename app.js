@@ -2,16 +2,16 @@ const express = require('express');
 const app = express();
 // const bodyParser = require('body-parser');
 
-const admin = require("firebase-admin");
+// const admin = require("firebase-admin");
 
-const serviceAccount = require("./crud-89cd3-firebase-adminsdk-j7o5m-14119e3036.json");
+// const serviceAccount = require("./crud-89cd3-firebase-adminsdk-j7o5m-14119e3036.json");
 
-admin.initializeApp({
-   credential: admin.credential.cert(serviceAccount),
-   databaseURL: "https://crud-89cd3-default-rtdb.firebaseio.com/"
-});
+// admin.initializeApp({
+//    credential: admin.credential.cert(serviceAccount),
+//    databaseURL: "https://crud-89cd3-default-rtdb.firebaseio.com/"
+// });
 
-const fireData = admin.database();
+// const fireData = admin.database();
 
 // app.set('views','./views');
 // app.set('view engine','ejs');
